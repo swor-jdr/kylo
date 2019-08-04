@@ -4,5 +4,10 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base: {
+    apiUrl: 'http://sidious.test/api/',
+    socket: 'ws://localhost:3000/',
+  },
+  storage: ['auth.token', 'auth.user', 'personnage.personnage']
 };

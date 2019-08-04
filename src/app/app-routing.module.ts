@@ -11,6 +11,10 @@ export const Approutes: Routes = [
     children: [
       { path: '', redirectTo: '/starter', pathMatch: 'full' },
       {
+        path: 'auth',
+        loadChildren: () => import('./@swor/auth/auth.module').then(m => m.AuthModule)
+      },
+      {
         path: 'starter',
         loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
       },
