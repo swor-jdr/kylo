@@ -12,7 +12,7 @@ export class FullComponent implements OnInit {
   color = 'defaultdark';
   showSettings = false;
   showMinisidebar = false;
-  showDarktheme = false;
+  showDarktheme = true;
   showRtl = false;
 
   public innerWidth: any;
@@ -22,27 +22,13 @@ export class FullComponent implements OnInit {
   constructor(public router: Router) {}
 
   ngOnInit() {
+    this.showMinisidebar = true;
     if (this.router.url === '/') {
       this.router.navigate(['/dashboard/dashboard1']);
     }
-    this.handleLayout();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.handleLayout();
   }
 
   toggleSidebar() {
     this.showMinisidebar = !this.showMinisidebar;
-  }
-
-  handleLayout() {
-    this.innerWidth = window.innerWidth;
-    if (this.innerWidth < 1170) {
-      this.showMinisidebar = true;
-    } else {
-      this.showMinisidebar = false;
-    }
   }
 }
