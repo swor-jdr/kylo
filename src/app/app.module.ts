@@ -20,6 +20,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { StoreModule } from './@core/store/store.module';
 import { AuthService } from './@swor/auth/auth.service';
 import { PersonnageService } from './@swor/auth/services/personnage.service';
+import { BlankComponent } from './layouts/blank/blank.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -32,6 +33,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppComponent,
     SpinnerComponent,
     FullComponent,
+    BlankComponent,
     NavigationComponent,
     BreadcrumbComponent,
     SidebarComponent
