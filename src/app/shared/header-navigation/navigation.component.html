@@ -178,7 +178,7 @@
     <!-- ============================================================== -->
     <!-- Profile -->
     <!-- ============================================================== -->
-    <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
+    <li class="nav-item dropdown" ngbDropdown placement="bottom-right" *ngIf="user && currentPersonnage">
         <a ngbDropdownToggle class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
         <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
             <ul class="dropdown-user">
@@ -186,20 +186,34 @@
                     <div class="dw-user-box">
                         <div class="u-img"><img src="assets/images/users/1.jpg" alt="user"></div>
                         <div class="u-text">
-                            <h4>Steave Jobs</h4>
-                            <p class="text-muted">varun@gmail.com</p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                            <h4>{{ currentPersonnage.name }}</h4>
+                            <p class="text-muted">{{ currentPersonnage.title }}</p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">Voir Profil</a></div>
                     </div>
                 </li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
+                <li><a href="#"><i class="ti-user"></i> Ma Fiche Eco</a></li>
+                <li><a href="#"><i class="ti-wallet"></i> Mon Compte</a></li>
                 <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                <div *ngFor="let inactive of inactivePersonnages">
+                    <li><a (click)="change(inactive)"><i class="ti-user"></i> {{ inactive.name }}</a></li>
+                </div>
                 <li role="separator" class="divider"></li>
-                <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                <li><a href="#"><i class="ti-settings"></i> Paramètres du Compte</a></li>
+                <li><a (click)="logout()"><i class="fa fa-power-off"></i> Déconnexion</a></li>
             </ul>
         </div>
+    </li>
+    <!-- User connected without a personnage -->
+    <li class="nav-item" placement="bottom-right" *ngIf="user && !currentPersonnage">
+        <a class="nav-link text-muted waves-effect waves-dark" (click)="addPersonnage()"><i class="mdi mdi-account-plus"></i></a>
+    </li>
+    <li class="nav-item" placement="bottom-right" *ngIf="user && !currentPersonnage">
+        <a class="nav-link text-muted waves-effect waves-dark" (click)="logout()"><i class="mdi mdi-power"></i></a>
+    </li>
+    <!-- User not connected at all -->
+    <li class="nav-item" placement="bottom-right" *ngIf="!user">
+        <a class="nav-link text-muted waves-effect waves-dark" (click)="login()"><i class="mdi mdi-power"></i></a>
     </li>
 </ul>
 
