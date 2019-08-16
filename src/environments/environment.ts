@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   base: {
-    apiUrl: 'http://sidious.test/api/',
+    apiUrl: 'http://localhost:8000/api/',
     socket: 'ws://localhost:3000/',
   },
   storage: ['auth.token', 'auth.user', 'personnage.personnage']
