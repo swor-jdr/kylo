@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
   base: {
-    apiUrl: 'http://localhost:8000/api/',
-    socket: 'ws://localhost:3000/',
+    apiUrl: 'http://api.swor-jdr.com/api/',
+    socket: 'ws://api.swor-jdr.com:3000/',
   },
   storage: ['auth.token', 'auth.user', 'personnage.personnage']
 };
