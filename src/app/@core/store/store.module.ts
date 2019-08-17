@@ -13,9 +13,7 @@ import { states } from './store.config';
 @NgModule({
   imports: [
     CommonModule,
-    NgxsModule.forRoot(states, {
-      developmentMode: !environment.production
-    }),
+    NgxsModule.forRoot(states),
     NgxsReduxDevtoolsPluginModule.forRoot({ disabled: true }),
     NgxsLoggerPluginModule.forRoot({ disabled: true }),
     NgxsRouterPluginModule.forRoot(),
