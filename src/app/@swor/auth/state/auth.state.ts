@@ -62,7 +62,7 @@ export class AuthState {
 
   @Action([LoginSuccess, RegisterSuccess])
   onLoginSuccess(ctx: StateContext<AuthStateModel>) {
-    console.log('Identification success');
+    console.log('Identification success for', ctx.getState());
     ctx.dispatch(new Navigate(['/home']));
   }
 
