@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   base: {
-    apiUrl: 'http://localhost:8000/api/',
+    apiUrl: 'http://api.swor-jdr.com/api/',
     socket: 'ws://localhost:3000/',
   },
   storage: ['auth.token', 'auth.user', 'personnage.personnage']
