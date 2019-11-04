@@ -5,10 +5,12 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelfComponent } from './views/self/self.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TabProfileComponent } from './components/tab-profile/tab-profile.component';
+import { TabTimelineComponent } from './components/tab-timeline/tab-timeline.component';
 
 
 @NgModule({
-  declarations: [SelfComponent],
+  declarations: [SelfComponent, TabProfileComponent, TabTimelineComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
