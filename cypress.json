@@ -1,0 +1,5 @@
+{
+    "ignoreTestFiles": "*.js",
+    "testFiles": "**/*.{feature,features}",
+    "baseUrl": "http://localhost:4200/#/"
+}
