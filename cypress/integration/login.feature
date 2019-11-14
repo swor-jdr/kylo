@@ -1,19 +1,19 @@
 Feature: Authentication
-    In order to use the platform
+    In order to use the game platform
     As a player
     I want to login
 
     Scenario: Failed to login
         Given I am on the "login" page
-        When I fill the field "email" in with "vador@sith.gal"
-        And I fill the field "password" in with "badPassword"
-        And I submit the form
-        Then I should not be on home page
+        When I fill in the field "email" with "vador@sith.gal"
+        And I fill in the field "password" with "badPassword"
+        And I click on "La Force est avec moi"
+        Then I should not be on "home" page
         And I should see an error
     
     Scenario: Success with login
         Given I am on the "login" page
-        When I fill the field "email" in with "vador@sith.gal"
-        And I fill the field "password" in with "secret"
-        And I submit the form
+        When I fill in the field "email" with "vador@sith.gal"
+        And I fill in the field "password" with "secret"
+        And I click on "La Force est avec moi"
         Then I should be redirected to "home" page
