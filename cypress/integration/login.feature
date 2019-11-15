@@ -1,7 +1,13 @@
-Feature: Authentication
+@authentication @login
+Feature: Login an user
     In order to use the game platform
     As a player
     I want to login
+
+    Background: Create test user
+        Given there are users: 
+        | name | email | password | 
+        | Vador | vador@sith.gal | secret |
 
     Scenario: Failed to login
         Given I am on the "login" page
