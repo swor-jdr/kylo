@@ -13,4 +13,6 @@ export interface Personnage {
     job?: string;
     title?: string;
     hide?: boolean;
+    location?: string;
+    hasForce?: boolean;
 }
