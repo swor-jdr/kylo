@@ -18,6 +18,24 @@ export class ChangeCurrentPersonnageSuccess {
     constructor(personnage: Personnage) {}
 }
 
+/**
+ * Event when a personnage was changed by you
+ * Triggered in order to ask the server to broadcast the change
+ */
+export class IChangedPersonnage {
+    static readonly type = '[Personnage] Updated by me';
+    constructor(personnage: Personnage) {}
+}
+
+/**
+ * Event when a personnage was changed by another people
+ * Triggered when socket iis received
+ */
+export class PersonnageWasChanged {
+    static readonly type = '[Personnage] Updated';
+    constructor(personnage: Personnage) {}
+}
+
 export class ChangeCurrentPersonnageFailed {
     static readonly type = '[Personnage] Change failed';
     constructor(error: any) {}
