@@ -6,6 +6,9 @@ import { Personnage } from '../../../auth/models/personnage.model';
 import { Subscription } from 'rxjs';
 import { TabTimelineComponent } from '../../components/tab-timeline/tab-timeline.component';
 import { TabProfileComponent } from '../../components/tab-profile/tab-profile.component';
+import { PersonnageService } from '../../../auth/services/personnage.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IChangedPersonnage } from '../../../auth/state/personnage.actions';
 
 @Component({
   selector: 'app-self',
@@ -14,14 +17,19 @@ import { TabProfileComponent } from '../../components/tab-profile/tab-profile.co
 })
 export class SelfComponent implements OnInit {
 
-  constructor(private store: Store) { }
+  constructor(
+    private store: Store,
+    private persoS: PersonnageService,
+    private formBuilder: FormBuilder
+    ) { }
 
   @ViewChild(TabTimelineComponent, {static: false}) tabTimelineComponent: TabTimelineComponent;
   @ViewChild(TabProfileComponent, {static: false}) tabProfileComponent: TabProfileComponent;
 
   @Select(PersonnageState.personnage) personnage$: Observable<Personnage>;
   private pjSubscription: Subscription;
-  public currentPersonnage: Personnage; 
+  public currentPersonnage: Personnage;
+  public selfForm: FormGroup;
 
   ngOnInit() {
     this.pjSubscription = this.personnage$.subscribe(
@@ -30,5 +38,13 @@ export class SelfComponent implements OnInit {
       },
       err => console.error(err)
     );
+
+    this.selfForm = this.formBuilder.group({
+      'name': ['', Validators.required],
+    });
+  }
+
+  onChange(data: Personnage) {
+    this.store.dispatch(new IChangedPersonnage(data));
   }
 }
