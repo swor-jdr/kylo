@@ -15,7 +15,7 @@ export class ChangeCurrentPersonnage {
 
 export class ChangeCurrentPersonnageSuccess {
     static readonly type = '[Personnage] Change successful';
-    constructor(personnage: Personnage) {}
+    constructor(public personnage: Personnage) {}
 }
 
 /**
@@ -24,7 +24,7 @@ export class ChangeCurrentPersonnageSuccess {
  */
 export class IChangedPersonnage {
     static readonly type = '[Personnage] Updated by me';
-    constructor(personnage: Personnage) {}
+    constructor(public personnage: Personnage) {}
 }
 
 /**

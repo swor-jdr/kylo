@@ -7,6 +7,7 @@ import {
     ChangeCurrentPersonnageFailed } from './personnage.actions';
 import { PersonnageService } from '../services/personnage.service';
 import { LogoutSuccess } from './auth.actions';
+import { IChangedPersonnage } from './personnage.actions';
 
 @State<PersonnageStateModel>({
     name: 'personnage',
@@ -39,5 +40,18 @@ export class PersonnageState {
         ctx.setState({
             personnage: null
         });
+    }
+
+    @Action(IChangedPersonnage)
+    updatePersonnage(ctx: StateContext<PersonnageStateModel>, event: IChangedPersonnage) {
+        if (event.personnage) {
+            this.personnageS.updatePersonnage(event.personnage).subscribe(
+                (pj) => {
+                    ctx.patchState({
+                        personnage: pj
+                    });
+                }
+            );
+        }
     }
 }
