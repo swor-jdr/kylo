@@ -33,10 +33,10 @@ export class IChangedPersonnage {
  */
 export class PersonnageWasChanged {
     static readonly type = '[Personnage] Updated';
-    constructor(personnage: Personnage) {}
+    constructor(public personnage: Personnage) {}
 }
 
 export class ChangeCurrentPersonnageFailed {
     static readonly type = '[Personnage] Change failed';
-    constructor(error: any) {}
+    constructor(public error: any) {}
 }
