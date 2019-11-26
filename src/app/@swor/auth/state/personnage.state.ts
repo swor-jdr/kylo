@@ -61,10 +61,10 @@ export class PersonnageState {
     updatedPersonnageFromElsewhere(ctx: StateContext<PersonnageStateModel>, event: PersonnageWasChanged) {
         if(event.personnage) {
             const current = ctx.getState().personnage;
-            if (!isNull(current) && current.id == event.personnage.id) {
+            if (!isNull(current) && current.id === event.personnage.id) {
                 ctx.patchState({
                     personnage: event.personnage
-                })
+                });
             }
         }
     }
