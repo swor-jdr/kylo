@@ -17,3 +17,4 @@ jobs:
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
         username: "R2D2"
         message: "Une nouvelle version du jeu est désormais en ligne."
+        avatar_url: "http://swor-jdr.com/images/r2.png"
