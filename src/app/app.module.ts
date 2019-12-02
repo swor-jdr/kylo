@@ -21,6 +21,7 @@ import { StoreModule } from './@core/store/store.module';
 import { AuthService } from './@swor/auth/auth.service';
 import { PersonnageService } from './@swor/auth/services/personnage.service';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { ToastrService, ToastrModule } from 'ngx-toastr';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -44,6 +45,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
     NgbModule.forRoot(),
     RouterModule.forRoot(Approutes),
     PerfectScrollbarModule,
@@ -56,6 +58,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     },
     AuthService,
     PersonnageService,
+    ToastrService,
   ],
   bootstrap: [AppComponent]
 })
