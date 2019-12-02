@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { PersonnageState } from '../../../auth/state/personnage.state';
 import { Observable } from 'rxjs/Observable';
@@ -15,7 +15,7 @@ import { IChangedPersonnage } from '../../../auth/state/personnage.actions';
   templateUrl: './self.component.html',
   styleUrls: ['./self.component.css']
 })
-export class SelfComponent implements OnInit {
+export class SelfComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store,
@@ -42,6 +42,10 @@ export class SelfComponent implements OnInit {
     this.selfForm = this.formBuilder.group({
       'name': ['', Validators.required],
     });
+  }
+
+  ngOnDestroy(): void {
+    this.pjSubscription.unsubscribe()
   }
 
   onChange(data: Personnage) {
