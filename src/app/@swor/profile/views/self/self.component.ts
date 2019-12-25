@@ -63,6 +63,8 @@ export class SelfComponent implements OnInit, OnDestroy {
   }
 
   onChange(data: Personnage) {
+    data.id = this.currentPersonnage.id;
     this.store.dispatch(new IChangedPersonnage(data));
+    console.log('[Self C] ', data)
   }
 }

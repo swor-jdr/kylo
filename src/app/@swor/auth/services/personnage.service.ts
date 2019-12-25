@@ -17,6 +17,10 @@ export class PersonnageService {
     return this.http.get<Personnage[]>(environment.base.apiUrl + 'owner/' + user.id + '/personnages');
   }
 
+  getBySlug(slug: string) {
+    return this.http.get<Personnage>(this.baseUrl + slug);
+  }
+
   change(personnage: Personnage) {
     return this.http.get<Personnage>(this.baseUrl + personnage.id + '/change');
   }
