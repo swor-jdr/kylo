@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { PersonnageState } from '../../../auth/state/personnage.state';
 import { Observable } from 'rxjs/Observable';
@@ -15,7 +15,7 @@ import { IChangedPersonnage } from '../../../auth/state/personnage.actions';
   templateUrl: './self.component.html',
   styleUrls: ['./self.component.css']
 })
-export class SelfComponent implements OnInit {
+export class SelfComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store,
@@ -35,16 +35,36 @@ export class SelfComponent implements OnInit {
     this.pjSubscription = this.personnage$.subscribe(
       (personnage) => {
         this.currentPersonnage = personnage;
+        this.setForm(personnage);
       },
       err => console.error(err)
     );
 
+    
+  }
+
+  private setForm(personnage: Personnage) {
+    console.log(personnage.bio)
+    console.log('signature :', personnage.signature)
     this.selfForm = this.formBuilder.group({
-      'name': ['', Validators.required],
+      'name': [{value: personnage.name, disabled: true}, Validators.required],
+      'location': [{value: personnage.location}, Validators.maxLength(255)],
+      'title': [{value: personnage.title}, Validators.maxLength(255)],
+      'job': [{value: personnage.job}, Validators.maxLength(255)],
+      'affections': [{value: personnage.affectations}, ''],
+      'aversions': [{value: personnage.aversions}, ''],
+      'bio': [{value: String(personnage.bio)}, ''],
+      'signature': [{value: personnage.signature}, ''],
     });
   }
 
+  ngOnDestroy(): void {
+    this.pjSubscription.unsubscribe()
+  }
+
   onChange(data: Personnage) {
+    data.id = this.currentPersonnage.id;
     this.store.dispatch(new IChangedPersonnage(data));
+    console.log('[Self C] ', data)
   }
 }

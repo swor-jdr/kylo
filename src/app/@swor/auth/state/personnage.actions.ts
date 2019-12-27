@@ -40,3 +40,8 @@ export class ChangeCurrentPersonnageFailed {
     static readonly type = '[Personnage] Change failed';
     constructor(public error: any) {}
 }
+
+export class PersonnageChangedSuccess {
+    static readonly type = '[Personnage] Change success';
+    constructor(public personnage: Personnage) {}
+}

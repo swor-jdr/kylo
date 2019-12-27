@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SelfComponent } from './views/self/self.component';
+import { MainComponent } from './views/main/main.component';
 
 
 const routes: Routes = [
   { path: '', component: SelfComponent,
     data: {
-      title: 'SWOR - Mon Profil'
+      title: 'Mon Profil'
     }
+  },
+  {
+    path: '/:slug', component: MainComponent,
+    data: { title: 'Profil' },
   }
 ];
 
