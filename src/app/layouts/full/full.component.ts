@@ -23,9 +23,6 @@ export class FullComponent implements OnInit {
 
   ngOnInit() {
     this.showMinisidebar = true;
-    if (this.router.url === '/') {
-      this.router.navigate(['/dashboard/dashboard1']);
-    }
   }
 
   toggleSidebar() {
