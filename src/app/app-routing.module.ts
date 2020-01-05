@@ -26,13 +26,13 @@ export const Approutes: Routes = [
         loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
       },
       {
-        path: 'component',
-        loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
-      }
+        path: 'holonews',
+        loadChildren: () => import('./@swor/holonews/holonews.module').then(m => m.HolonewsModule)
+      },
     ]
   },
   {
     path: '**',
-    redirectTo: '/starter'
+    redirectTo: 'home'
   }
 ];

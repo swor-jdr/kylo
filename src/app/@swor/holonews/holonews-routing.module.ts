@@ -1,11 +1,24 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NewshomeComponent } from './views/newshome/newshome.component';
+import { ArticleComponent } from './views/article/article.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: NewshomeComponent,
+    data: {
+      title: ''
+    }
+  },
+  {
+    path: ':slug',
+    component: ArticleComponent,
+    data: {
+      title: ''
+    }
+  }
+];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class HolonewsRoutingModule { }
+export const routing: ModuleWithProviders = RouterModule.forChild(routes)
