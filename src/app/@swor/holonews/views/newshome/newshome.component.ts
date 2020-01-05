@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../../services/blog.service';
+import { BlogPost } from '../../services/article.model';
 
 @Component({
   selector: 'app-newshome',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newshome.component.css']
 })
 export class NewshomeComponent implements OnInit {
+  articles: BlogPost[];
 
-  constructor() { }
+  constructor(private blog$: BlogService) { }
 
   ngOnInit() {
+    this.blog$.all().subscribe(
+      res => this.articles = res.data,
+      err => console.error(err)
+    );
+    console.log('initiated')
   }
 
 }
