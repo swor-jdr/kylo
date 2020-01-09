@@ -1,0 +1,17 @@
+.no-padding {
+    padding: 0;
+}
+
+.swor__list__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.swor__holonews .element:first-child {
+    margin-top: 0;
+}
+
+.swor__holonews .element {
+    margin-top: 25px;
+}
