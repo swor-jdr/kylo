@@ -9,5 +9,8 @@ export const environment = {
     apiUrl: 'http://sidious.test/api/',
     socket: 'ws://localhost:3000/',
   },
-  storage: ['auth.token', 'auth.user', 'personnage.personnage']
+  storage: ['auth.token', 'auth.user', 'personnage.personnage'],
+  mixpanel: {
+    projectToken: ''
+  }
 };
