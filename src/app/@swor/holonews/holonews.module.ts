@@ -5,6 +5,7 @@ import { routing } from './holonews-routing.module';
 import { NewshomeComponent } from './views/newshome/newshome.component';
 import { ArticleComponent } from './views/article/article.component';
 import { BlogService } from './services/blog.service';
+import { TitletagService } from './services/titletag.service';
 
 
 @NgModule({
@@ -13,6 +14,6 @@ import { BlogService } from './services/blog.service';
     CommonModule,
     routing,
   ],
-  providers: [BlogService]
+  providers: [BlogService, TitletagService]
 })
 export class HolonewsModule { }
