@@ -11,7 +11,7 @@ const routes: Routes = [
     }
   },
   {
-    path: '/:slug', component: MainComponent,
+    path: ':slug', component: MainComponent,
     data: { title: 'Profil' },
   }
 ];
