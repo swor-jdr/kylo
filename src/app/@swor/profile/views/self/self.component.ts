@@ -48,13 +48,13 @@ export class SelfComponent implements OnInit, OnDestroy {
     console.log('signature :', personnage.signature)
     this.selfForm = this.formBuilder.group({
       'name': [{value: personnage.name, disabled: true}, Validators.required],
-      'location': [{value: personnage.location}, Validators.maxLength(255)],
-      'title': [{value: personnage.title}, Validators.maxLength(255)],
-      'job': [{value: personnage.job}, Validators.maxLength(255)],
-      'affections': [{value: personnage.affectations}, ''],
-      'aversions': [{value: personnage.aversions}, ''],
-      'bio': [{value: String(personnage.bio)}, ''],
-      'signature': [{value: personnage.signature}, ''],
+      'location': [personnage.location, Validators.maxLength(255)],
+      'title': [personnage.title, Validators.maxLength(255)],
+      'job': [personnage.job, Validators.maxLength(255)],
+      'affections': [personnage.affectations, ''],
+      'aversions': [personnage.aversions, ''],
+      'bio': [personnage.bio, ''],
+      'signature': [personnage.signature, ''],
     });
   }
 
