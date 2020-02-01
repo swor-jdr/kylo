@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonnageService } from '../../../auth/services/personnage.service';
 import { ActivatedRoute } from '@angular/router';
 import { Personnage } from '../../../auth/models/personnage.model';
-import { isUndefined, isNull } from 'util';
+import { isNull, isNullOrUndefined } from 'util';
 import { Group } from '../../../faction/models/group.model';
 import { Store } from '@ngxs/store';
 import { Navigate } from '@ngxs/router-plugin';
@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
   }
 
   setPjGroup(personnage: Personnage) {
-    if (!isUndefined(personnage.assignations) && !isNull(personnage.assignations)) {
+    if (!isNullOrUndefined(personnage.assignations)) {
       const main = _.filter(personnage.assignations, (item) => item.isMain)[0];
       this.group = main.group;
       console.log('Group : ', main.group)
