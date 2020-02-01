@@ -25,23 +25,23 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const slug = this.route.snapshot.paramMap.get('slug');
-    if (!isNull(slug)) {
-      this.pjS.getBySlug(slug).subscribe(
-        (personnage) => this.setPersonnage(personnage),
-        (err) => console.error(err)
-      );
-    } else {
-      this.store.dispatch(new Navigate(['/home']))
-    }
+    this.route.params.subscribe(
+      params => {
+        this.pjS.getBySlug(params.slug).subscribe(
+          (personnage) => this.setPersonnage(personnage),
+          // @todo should this.store.dispatch(new Navigate(['/home'])) when error
+          (err) => console.error(err)
+        )
+      }
+    )
   }
 
-  setPersonnage(personnage: Personnage) {
+  private setPersonnage(personnage: Personnage) {
     this.personnage = personnage;
     this.setPjGroup(personnage);
   }
 
-  setPjGroup(personnage: Personnage) {
+  private setPjGroup(personnage: Personnage) {
     if (!isNullOrUndefined(personnage.assignations)) {
       const main = _.filter(personnage.assignations, (item) => item.isMain)[0];
       this.group = main.group;
