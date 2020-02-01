@@ -17,7 +17,6 @@ export class NewshomeComponent implements OnInit {
       res => this.articles = res.data,
       err => console.error(err)
     );
-    console.log('initiated')
   }
 
 }

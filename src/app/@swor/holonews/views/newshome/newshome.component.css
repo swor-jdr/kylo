@@ -8,6 +8,10 @@
     display: block;
 }
 
+.card-body {
+    padding-bottom: 0;
+}
+
 .swor__holonews .element:first-child {
     margin-top: 0;
 }

@@ -1,0 +1,96 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" [ngClass]="
+    {
+        'defaultdark': color == 'defaultdark',
+        'greendark': color == 'greendark',
+        'reddark': color == 'reddark',
+        'bluedark': color == 'bluedark',
+        'purpledark': color == 'purpledark',
+        'megnadark': color == 'megnadark',
+        'default': color == 'default',
+        'green': color == 'green',
+        'red': color == 'red',
+        'blue': color == 'blue',
+        'purple': color == 'purple',
+        'megna': color == 'megna',
+        'mini-sidebar': showMinisidebar,
+        'dark-theme': showDarktheme,
+        'rtl-theme': showRtl   
+    }
+">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar">
+        <nav class="d-flex swor__topbar navbar-expand-md navbar-light">
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+
+            <div class="navbar-header">
+                <a class="navbar-brand" (click)="goHome()">
+                    <!-- Logo icon --><b>
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
+                        <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                        <!-- Light Logo icon -->
+                        <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                    </b>
+                    <!--End Logo icon -->
+                </a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse w-100">
+                <ul class="navbar-nav my-lg-0 float-right">
+                    <li class="nav-item dropdown pull-right" ngbDropdown placement="bottom-right" *ngIf="user && currentPersonnage">
+        <a class="nav-link text-muted waves-effect waves-dark" href="javascript:void(0)" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
+    <!-- User connected without a personnage -->
+    <li class="nav-item" placement="bottom-right" *ngIf="user && !currentPersonnage">
+        <a class="nav-link text-muted waves-effect waves-dark" (click)="addPersonnage()"><i class="mdi mdi-account-plus"></i></a>
+    </li>
+    <li class="nav-item" placement="bottom-right" *ngIf="user && !currentPersonnage">
+        <a class="nav-link text-muted waves-effect waves-dark" (click)="logout()"><i class="mdi mdi-power"></i></a>
+    </li>
+    <!-- User not connected at all -->
+    <li class="nav-item" placement="bottom-right" *ngIf="!user">
+        <a class="nav-link text-muted waves-effect waves-dark" (click)="login()"><i class="mdi mdi-power"></i></a>
+    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper swor__blog">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <router-outlet></router-outlet>
+            <!-- ============================================================== -->
+            <!-- End Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Setting Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>

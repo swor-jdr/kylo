@@ -4,6 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { NoSideComponent } from './layouts/no-side/no-side.component';
 
 export const Approutes: Routes = [
   {
@@ -17,6 +18,16 @@ export const Approutes: Routes = [
     ]
   },
   {
+    path: 'holonews',
+    component: NoSideComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./@swor/holonews/holonews.module').then(m => m.HolonewsModule) 
+      }
+    ]
+  },
+  {
     path: '',
     component: FullComponent,
     children: [
@@ -24,10 +35,6 @@ export const Approutes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
-      },
-      {
-        path: 'holonews',
-        loadChildren: () => import('./@swor/holonews/holonews.module').then(m => m.HolonewsModule)
       },
     ]
   },
