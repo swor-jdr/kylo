@@ -96,10 +96,10 @@
                 </ngb-tab>
                 <!-- Section Mon Compte -->
                 <ngb-tab title="Mon Compte" [disabled]="true">
-                        <ng-template ngbTabContent>
-                            <p>En construction</p>
-                        </ng-template>
-                    </ngb-tab>
+                    <ng-template ngbTabContent>
+                        <p>En construction</p>
+                    </ng-template>
+                </ngb-tab>
                 <!-- Section Fiche Force -->
                 <ngb-tab title="Fiche Force" [disabled]="true" *ngIf="currentPersonnage.hasForce">
                     <ng-template ngbTabContent>
@@ -124,16 +124,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                        <label class="col-md-12">Métier</label>
-                                        <div class="col-md-12">
-                                            <input type="text" formControlName="job" value="{{currentPersonnage.job}}" class="form-control form-control-line">
-                                        </div>
+                                    <label class="col-md-12">Métier</label>
+                                    <div class="col-md-12">
+                                        <input type="text" formControlName="job" value="{{currentPersonnage.job}}" class="form-control form-control-line">
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                        <label class="col-md-12">Localisation</label>
-                                        <div class="col-md-12">
-                                            <input type="text" formControlName="location" value="{{currentPersonnage.location}}" class="form-control form-control-line">
-                                        </div>
+                                    <label class="col-md-12">Localisation</label>
+                                    <div class="col-md-12">
+                                        <input type="text" formControlName="location" value="{{currentPersonnage.location}}" class="form-control form-control-line">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Biographie</label>
@@ -142,22 +142,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                        <label class="col-md-12">Affections</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" formControlName="affections" class="form-control form-control-line">{{ currentPersonnage.affections }}</textarea>
-                                        </div>
+                                    <label class="col-md-12">Affections</label>
+                                    <div class="col-md-12">
+                                        <textarea rows="5" formControlName="affections" class="form-control form-control-line">{{ currentPersonnage.affections }}</textarea>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                        <label class="col-md-12">Aversions</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" formControlName="aversions" class="form-control form-control-line">{{ currentPersonnage.aversions }}</textarea>
-                                        </div>
+                                    <label class="col-md-12">Aversions</label>
+                                    <div class="col-md-12">
+                                        <textarea rows="5" formControlName="aversions" class="form-control form-control-line">{{ currentPersonnage.aversions }}</textarea>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                        <label class="col-md-12">Signature</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" formControlName="signature" class="form-control form-control-line">{{ currentPersonnage.signature }}</textarea>
-                                        </div>
+                                    <label class="col-md-12">Signature</label>
+                                    <div class="col-md-12">
+                                        <textarea rows="5" formControlName="signature" class="form-control form-control-line">{{ currentPersonnage.signature }}</textarea>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
