@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonnageService } from '../../../auth/services/personnage.service';
 import { ActivatedRoute } from '@angular/router';
 import { Personnage } from '../../../auth/models/personnage.model';
-import { isNull, isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from 'util';
 import { Group } from '../../../faction/models/group.model';
 import { Store } from '@ngxs/store';
 import { Navigate } from '@ngxs/router-plugin';
@@ -29,7 +29,7 @@ export class MainComponent implements OnInit {
       params => {
         this.pjS.getBySlug(params.slug).subscribe(
           (personnage) => this.setPersonnage(personnage),
-          // @todo should this.store.dispatch(new Navigate(['/home'])) when error
+          // @todo should this.store.dispatch(new Navigate(['/home'])) when error + error message
           (err) => console.error(err)
         )
       }
@@ -38,9 +38,11 @@ export class MainComponent implements OnInit {
 
   private setPersonnage(personnage: Personnage) {
     this.personnage = personnage;
-    this.setPjGroup(personnage);
+    console.log('[Personnage] Set as ', personnage.name)
+    // this.setPjGroup(personnage);
   }
 
+  // @todo this does not work, should be a get function in Personnage (?)
   private setPjGroup(personnage: Personnage) {
     if (!isNullOrUndefined(personnage.assignations)) {
       const main = _.filter(personnage.assignations, (item) => item.isMain)[0];

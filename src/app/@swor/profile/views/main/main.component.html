@@ -4,17 +4,17 @@
         <div class="card">
             <div class="card-body">
                 <div class="m-t-30 text-center"> <img src="assets/images/users/5.jpg" class="img-circle" width="150" />
-                    <h4 class="card-title m-t-10">{{ currentPersonnage.name }}</h4>
-                    <h6 class="card-subtitle">{{ currentPersonnage.title }}</h6>
+                    <h4 class="card-title m-t-10">{{ personnage.name }}</h4>
+                    <h6 class="card-subtitle">{{ personnage.title }}</h6>
                     <div class="row text-center justify-content-md-center">
                         <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">&nbsp;254</font></a></div>
                         <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">&nbsp;54</font></a></div>
                     </div>
                     <div class="row text-center justify-content-md-center">
-                        <div class="col-4" *ngIf="currentPersonnage.isStaff">
+                        <div class="col-4" *ngIf="personnage.isStaff">
                             <span class="badge badge-warning">staff</span>
                         </div>
-                        <div class="col-4" *ngIf="!currentPersonnage.isActive">
+                        <div class="col-4" *ngIf="!personnage.isActive">
                             <span class="badge badge-light">inactif</span>
                         </div>
                     </div>
@@ -23,8 +23,10 @@
             <div>
                 <hr> </div>
             <div class="card-body">
-                <small class="text-muted db">Faction</small><h6>{{ pjMainGroup.name }}</h6> 
-                <small class="text-muted p-t-20 db">Solde bancaire</small><h6>2 589 654 $</h6> 
+                <small class="text-muted db">Faction</small>
+                <h6>Groupe inconnu</h6>
+                <small class="text-muted p-t-20 db">Solde bancaire</small>
+                <h6>2 589 654 $</h6>
                 <!-- @todo add actions on PJ here -->
             </div>
         </div>
@@ -43,28 +45,28 @@
                             <div class="row">
                                 <div class="col-md-3 col-xs-6 b-r"> <strong>Nom Complet</strong>
                                     <br>
-                                    <p class="text-muted">{{ currentPersonnage.name }}</p>
+                                    <p class="text-muted">{{ personnage.name }}</p>
                                 </div>
                                 <div class="col-md-3 col-xs-6 b-r"> <strong>Titre</strong>
                                     <br>
-                                    <p class="text-muted">{{ currentPersonnage.title }}</p>
+                                    <p class="text-muted">{{ personnage.title }}</p>
                                 </div>
                                 <div class="col-md-3 col-xs-6 b-r"> <strong>Métier</strong>
                                     <br>
-                                    <p class="text-muted">{{ currentPersonnage.job }}</p>
+                                    <p class="text-muted">{{ personnage.job }}</p>
                                 </div>
                                 <div class="col-md-3 col-xs-6"> <strong>Localisation</strong>
                                     <br>
-                                    <p class="text-muted">{{ currentPersonnage.location }}</p>
+                                    <p class="text-muted">{{ personnage.location }}</p>
                                 </div>
                             </div>
                             <hr>
                             <h4 class="font-medium m-t-30">Biographie</h4>
-                            <p [innerHTML]="currentPersonnage.bio"></p>
+                            <p [innerHTML]="personnage.bio"></p>
                             <h4 class="font-medium m-t-30">Affections</h4>
-                            <p [innerHTML]="currentPersonnage.affections"></p>
+                            <p [innerHTML]="personnage.affections"></p>
                             <h4 class="font-medium m-t-30">Aversions</h4>
-                            <p [innerHTML]="currentPersonnage.aversions"></p>
+                            <p [innerHTML]="personnage.aversions"></p>
                             <!-- Skill Set Section
                             <h4 class="font-medium m-t-30">Skill Set</h4>
                             <hr>
@@ -101,71 +103,9 @@
                     </ng-template>
                 </ngb-tab>
                 <!-- Section Fiche Force -->
-                <ngb-tab title="Fiche Force" [disabled]="true" *ngIf="currentPersonnage.hasForce">
+                <ngb-tab title="Fiche Force" [disabled]="true" *ngIf="personnage.hasForce">
                     <ng-template ngbTabContent>
                         <p>En construction</p>
-                    </ng-template>
-                </ngb-tab>
-                <!-- Section Settings -->
-                <ngb-tab title="Settings">
-                    <ng-template ngbTabContent>
-                        <div class="card-body">
-                            <form class="form-horizontal form-material" id="selfform" [formGroup]="selfForm">
-                                <div class="form-group">
-                                    <label class="col-md-12">Nom Complet</label>
-                                    <div class="col-md-12">
-                                        <input type="text" formControlName="name" value="{{currentPersonnage.name}}" class="form-control form-control-line" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Titre</label>
-                                    <div class="col-md-12">
-                                        <input type="text" formControlName="title" value="{{currentPersonnage.title}}" class="form-control form-control-line">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Métier</label>
-                                    <div class="col-md-12">
-                                        <input type="text" formControlName="job" value="{{currentPersonnage.job}}" class="form-control form-control-line">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Localisation</label>
-                                    <div class="col-md-12">
-                                        <input type="text" formControlName="location" value="{{currentPersonnage.location}}" class="form-control form-control-line">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Biographie</label>
-                                    <div class="col-md-12">
-                                        <textarea rows="5" formControlName="bio" class="form-control form-control-line">{{ currentPersonnage.bio }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Affections</label>
-                                    <div class="col-md-12">
-                                        <textarea rows="5" formControlName="affections" class="form-control form-control-line">{{ currentPersonnage.affections }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Aversions</label>
-                                    <div class="col-md-12">
-                                        <textarea rows="5" formControlName="aversions" class="form-control form-control-line">{{ currentPersonnage.aversions }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Signature</label>
-                                    <div class="col-md-12">
-                                        <textarea rows="5" formControlName="signature" class="form-control form-control-line">{{ currentPersonnage.signature }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <button class="btn btn-success" (click)="onChange(selfForm.value)" [disabled]="!selfForm.valid">Tel est mon destin</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                     </ng-template>
                 </ngb-tab>
             </ngb-tabset>
