@@ -1,5 +1,7 @@
 {
     "ignoreTestFiles": "*.js",
     "testFiles": "**/*.{feature,features}",
-    "baseUrl": "http://localhost:4200/#/"
+    "baseUrl": "http://localhost:4200/#/",
+    "videoUploadOnPasses": false,
+    "trashAssetsBeforeRuns": false
 }
