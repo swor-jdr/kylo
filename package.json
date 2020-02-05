@@ -9,7 +9,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "cypress run --spec \"**/*.feature\"",
+    "e2e": "cypress run --record --spec \"**/*.feature\"",
     "format": "npx prettier --write 'src/**/*.ts'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
