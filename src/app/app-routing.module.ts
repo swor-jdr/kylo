@@ -28,11 +28,15 @@ export const Approutes: Routes = [
       {
         path: 'component',
         loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
+      },
+      {
+        path: 'profil',
+        loadChildren: () => import('./@swor/profile/profile.module').then(m => m.ProfileModule)
       }
     ]
   },
   {
     path: '**',
-    redirectTo: '/starter'
+    redirectTo: '/home'
   }
 ];

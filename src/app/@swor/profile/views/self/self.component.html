@@ -1,0 +1,177 @@
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-4 col-xlg-3 col-md-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="m-t-30 text-center"> <img src="assets/images/users/5.jpg" class="img-circle" width="150" />
+                    <h4 class="card-title m-t-10">{{ currentPersonnage.name }}</h4>
+                    <h6 class="card-subtitle">{{ currentPersonnage.title }}</h6>
+                    <div class="row text-center justify-content-md-center">
+                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">&nbsp;254</font></a></div>
+                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">&nbsp;54</font></a></div>
+                    </div>
+                    <div class="row text-center justify-content-md-center">
+                        <div class="col-4" *ngIf="currentPersonnage.isStaff">
+                            <span class="badge badge-warning">staff</span>
+                        </div>
+                        <div class="col-4" *ngIf="currentPersonnage.isActive">
+                            <span class="badge badge-light">inactif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr> </div>
+            <div class="card-body">
+                <small class="text-muted db">Faction</small>
+                <h6>Ordre Jedi</h6>
+                <small class="text-muted p-t-20 db">Solde bancaire</small>
+                <h6>2 589 654 $</h6>
+                <!-- @todo add actions on PJ here -->
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-8 col-xlg-9 col-md-7">
+        <div class="card">
+            <ngb-tabset>
+                <!-- BEGIN tab section -->
+                <app-tab-timeline></app-tab-timeline>
+                <!-- END tab section -->
+                <ngb-tab title="Profil">
+                    <ng-template ngbTabContent>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 col-xs-6 b-r"> <strong>Nom Complet</strong>
+                                    <br>
+                                    <p class="text-muted">{{ currentPersonnage.name }}</p>
+                                </div>
+                                <div class="col-md-3 col-xs-6 b-r"> <strong>Titre</strong>
+                                    <br>
+                                    <p class="text-muted">{{ currentPersonnage.title }}</p>
+                                </div>
+                                <div class="col-md-3 col-xs-6 b-r"> <strong>Métier</strong>
+                                    <br>
+                                    <p class="text-muted">{{ currentPersonnage.job }}</p>
+                                </div>
+                                <div class="col-md-3 col-xs-6"> <strong>Localisation</strong>
+                                    <br>
+                                    <p class="text-muted">{{ currentPersonnage.location }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <h4 class="font-medium m-t-30">Biographie</h4>
+                            <p [innerHTML]="currentPersonnage.bio"></p>
+                            <h4 class="font-medium m-t-30">Affections</h4>
+                            <p [innerHTML]="currentPersonnage.affections"></p>
+                            <h4 class="font-medium m-t-30">Aversions</h4>
+                            <p [innerHTML]="currentPersonnage.aversions"></p>
+                            <!-- Skill Set Section
+                            <h4 class="font-medium m-t-30">Skill Set</h4>
+                            <hr>
+                            <h5 class="m-t-30">Wordpress <span class="pull-right">80%</span></h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                            </div>
+                            <h5 class="m-t-30">HTML 5 <span class="pull-right">90%</span></h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                            </div>
+                            <h5 class="m-t-30">jQuery <span class="pull-right">50%</span></h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                            </div>
+                            <h5 class="m-t-30">Photoshop <span class="pull-right">70%</span></h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                            </div>
+                            <!-- / Skill Set Section -->
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+                <!-- Section Fiche Eco -->
+                <ngb-tab title="Fiche Eco" [disabled]="true">
+                    <ng-template ngbTabContent>
+                        <p>En construction</p>
+                    </ng-template>
+                </ngb-tab>
+                <!-- Section Mon Compte -->
+                <ngb-tab title="Mon Compte" [disabled]="true">
+                    <ng-template ngbTabContent>
+                        <p>En construction</p>
+                    </ng-template>
+                </ngb-tab>
+                <!-- Section Fiche Force -->
+                <ngb-tab title="Fiche Force" [disabled]="true" *ngIf="currentPersonnage.hasForce">
+                    <ng-template ngbTabContent>
+                        <p>En construction</p>
+                    </ng-template>
+                </ngb-tab>
+                <!-- Section Settings -->
+                <ngb-tab title="Settings">
+                    <ng-template ngbTabContent>
+                        <div class="card-body">
+                            <form class="form-horizontal form-material" id="selfform" [formGroup]="selfForm">
+                                <div class="form-group">
+                                    <label class="col-md-12">Nom Complet</label>
+                                    <div class="col-md-12">
+                                        <input type="text" formControlName="name" class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Titre</label>
+                                    <div class="col-md-12">
+                                        <input type="text" formControlName="title" class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Métier</label>
+                                    <div class="col-md-12">
+                                        <input type="text" formControlName="job" class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Localisation</label>
+                                    <div class="col-md-12">
+                                        <input type="text" formControlName="location" class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Biographie</label>
+                                    <div class="col-md-12">
+                                        <textarea rows="5" formControlName="bio" class="form-control form-control-line"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Affections</label>
+                                    <div class="col-md-12">
+                                        <textarea rows="5" formControlName="affections" class="form-control form-control-line"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Aversions</label>
+                                    <div class="col-md-12">
+                                        <textarea rows="5" formControlName="aversions" class="form-control form-control-line"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Signature</label>
+                                    <div class="col-md-12">
+                                        <textarea rows="5" formControlName="signature" class="form-control form-control-line"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success" (click)="onChange(selfForm.value)" [disabled]="!selfForm.valid">Tel est mon destin</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+    <!-- Column -->
+</div>

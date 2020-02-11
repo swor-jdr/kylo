@@ -9,6 +9,14 @@
     overflow: hidden;
 
 }
+
+.dark-logo, .light-logo {
+    position: relative;
+    right: 5px;
+    width: 70%;
+    max-width: 60px;
+}
+
 @media screen and (max-width: 992px) {
     .main-container {
         margin-left: 0px !important;

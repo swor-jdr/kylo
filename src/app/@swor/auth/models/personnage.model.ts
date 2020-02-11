@@ -1,3 +1,4 @@
+import { Assignation } from '../../faction/models/assignation.model';
 export interface Personnage {
     id: number;
     name: string;
@@ -13,4 +14,7 @@ export interface Personnage {
     job?: string;
     title?: string;
     hide?: boolean;
+    location?: string;
+    hasForce?: boolean;
+    assignations?: Assignation[];
 }
