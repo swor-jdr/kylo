@@ -1,18 +1,18 @@
 <div class="login-register" style="background-image:url(assets/images/fond/Fond5.svg);">
   <div class="login-box card">
     <div class="card-body">
-      <form class="form-horizontal form-material" id="loginform">
+      <form class="form-horizontal form-material" id="personnageform" [formGroup]="personnageForm">
         <h3 class="box-title m-b-20">Créer votre personnage</h3>
         <div class="form-group">
           <div class="col-xs-12">
             <small>&nbsp;Nom du personnage</small>
-            <input class="form-control" required="" type="text" placeholder="Luke Skywalker">
+            <input class="form-control" formControlName="name" required="" type="text" placeholder="Luke Skywalker">
           </div>
         </div>
         <div class="form-group ">
           <div class="col-xs-12">
             <small>&nbsp;Votre titre</small>
-            <input class="form-control" required="" type="text" placeholder="Maître Jedi">
+            <input class="form-control" formControlName="job" required="" type="text" placeholder="Maître Jedi">
           </div>
         </div>
         <div class="form-group ">
@@ -24,12 +24,12 @@
         <div class="form-group">
           <div class="col-xs-12">
             <small>&nbsp;Code de récupération</small>
-            <input class="form-control" required="" type="text" placeholder="Confirm Password">
+            <input class="form-control" formControlName="code_recuperation" required="" type="text" placeholder="Code de Récupération">
           </div>
         </div>
         <div class="form-group text-center p-b-20">
           <div class="col-xs-12">
-            <button [routerLink]="['/authentication/login']" class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light">Fais le !</button>
+            <button (click)="submit()" class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light">Fais le !</button>
           </div>
         </div>
       </form>
