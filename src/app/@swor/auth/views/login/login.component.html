@@ -1,30 +1,38 @@
-<section id="wrapper" class="login-register login-sidebar" style="background-image:url(assets/images/background/deathstar.jpg);">
+<section id="wrapper" class="login-register login-sidebar"
+    style="background-image:url(assets/images/background/deathstar.jpg);">
     <div class="login-box card">
         <div class="card-body">
-            <form class="form-horizontal form-material" id="loginform" [formGroup]="loginForm" [ngClass]="{'d-none': isRecoverform}">
-                <a href="javascript:void(0)" class="text-center db"><img class="swor__logo" src="assets/images/logo-light-icon.png" alt="Home" /><br/></a>
+            <form class="form-horizontal form-material" id="loginform" [formGroup]="loginForm"
+                [ngClass]="{'d-none': isRecoverform}">
+                <a href="javascript:void(0)" class="text-center db"><img class="swor__logo"
+                        src="assets/images/logo-light-icon.png" alt="Home" /><br /></a>
                 <div class="form-group m-t-40">
                     <div class="col-xs-12">
-                        <input class="form-control" formControlName="email" type="email" required="" placeholder="sidious@senate.gal">
+                        <input class="form-control" formControlName="email" type="email" required=""
+                            placeholder="sidious@senate.gal">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" formControlName="password" type="password" required="" placeholder="Password">
+                        <input class="form-control" formControlName="password" type="password" required=""
+                            placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-12">
                         <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                          <label class="custom-control-label" for="customCheck1">Se souvenir de moi</label>
-                          <a (click)="showRecoverForm()" href="javascript:void(0)" id="to-recover" class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> Un oubli?</a>
-                        </div> 
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                            <label class="custom-control-label" for="customCheck1">Se souvenir de moi</label>
+                            <a (click)="showRecoverForm()" href="javascript:void(0)" id="to-recover"
+                                class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> Un oubli?</a>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group text-center m-t-20">
                     <div class="col-xs-12">
-                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" (click)="login(loginForm.value)" [disabled]="!loginForm.valid">La Force est avec moi</button>
+                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
+                            (click)="login(loginForm.value)" [disabled]="!loginForm.valid">La Force est avec
+                            moi</button>
                     </div>
                 </div>
                 <!-- Disable social login for now 
@@ -39,11 +47,13 @@
                 -->
                 <div class="form-group m-b-0">
                     <div class="col-sm-12 text-center">
-                        <p>Pas encore de compte? <a class="text-info m-l-5" (click)="register()"><b>S'enregistrer</b></a></p>
+                        <p>Pas encore de compte? <a class="text-info m-l-5"
+                                (click)="register()"><b>S'enregistrer</b></a></p>
                     </div>
                 </div>
             </form>
-            <form class="form-horizontal" id="recoverform" [formGroup]="recoverForm" [ngClass]="{'d-none': !isRecoverform}">
+            <form class="form-horizontal" id="recoverform" [formGroup]="recoverForm"
+                [ngClass]="{'d-none': !isRecoverform}">
                 <div class="form-group ">
                     <div class="col-xs-12">
                         <h3>Retrouver votre mot de passe</h3>
@@ -52,12 +62,14 @@
                 </div>
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" formControlName="email" type="text" required="" placeholder="vador@sith.net">
+                        <input class="form-control" formControlName="email" type="text" required=""
+                            placeholder="vador@sith.net">
                     </div>
                 </div>
                 <div class="form-group text-center m-t-20">
                     <div class="col-xs-12">
-                        <a class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" (click)="askRecovery()">Reset</a>
+                        <a class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light"
+                            (click)="askRecovery()">Reset</a>
                     </div>
                 </div>
             </form>
