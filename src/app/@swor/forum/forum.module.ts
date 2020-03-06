@@ -5,9 +5,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TopicService } from './services/topic.service';
 import { ForumService } from './services/forum.service';
 import { PostService } from './services/post.service';
+import { IndexComponent } from './views/index/index.component';
+import { ForumComponent } from './views/forum/forum.component';
+import { TopicComponent } from './views/topic/topic.component';
+import { PostingComponent } from './views/posting/posting.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [IndexComponent, ForumComponent, TopicComponent, PostingComponent],
   imports: [
     CommonModule,
     FormsModule,
