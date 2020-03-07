@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Forum } from '../../models/forum.model';
 import { ForumService } from '../../services/forum.service';
+import { Store } from '@ngxs/store';
+import { Navigate } from '@ngxs/router-plugin';
 
 @Component({
   selector: 'app-index',
@@ -9,18 +11,26 @@ import { ForumService } from '../../services/forum.service';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private forumS: ForumService) { }
+  constructor(private forumS: ForumService, private store: Store) { }
 
   forums: Forum[];
 
   ngOnInit() {
     this.forumS.index().subscribe(
-      res => this.forums = res,
+      res => {
+        this.forums = res
+        console.log('[Forum Index] ', res)
+      },
       err => console.error(err)
     );
   }
 
-  goToForum(slug: string) {}
+  /**
+   * Navigate to chosen forum
+   */
+  goToForum(slug: string) {
+    this.store.dispatch(new Navigate(['forum/'], { slug: slug }))
+  }
 
   goToTopic(slug: string, page: number = null) {}
 }

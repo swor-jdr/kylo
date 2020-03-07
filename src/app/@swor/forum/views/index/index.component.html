@@ -1,1 +1,25 @@
-<p>index works!</p>
+<div class="row" *ngFor="let forum of forums">
+    <div class="col-md-12">
+        <div class="card card-inverse forum__card" style="background-color: #333; border-color: #333;">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white forum__card__title">{{ forum.name }}</h4>
+            </div>
+            <div class="card-body" *ngFor="let child of forum.children">
+                <div class="row forum__card__forum">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-8">
+                        <h3 class="card-title" (click)="goToForum(child.slug)">{{ child.name }}</h3>
+                        <div class="forum__card__forum__content" [innerHTML]="child.content"></div>∑
+                    </div>
+                    <div class="col-md-1">
+                        <p>7 messages</p>
+                        <p>1 sujet</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>Last Message section</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
