@@ -22,6 +22,10 @@ export const Approutes: Routes = [
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       {
+        path: 'forum',
+        loadChildren: () => import('./@swor/forum/forum.module').then(m => m.ForumModule)
+      },
+      {
         path: 'home',
         loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
       },
@@ -32,7 +36,7 @@ export const Approutes: Routes = [
       {
         path: 'profil',
         loadChildren: () => import('./@swor/profile/profile.module').then(m => m.ProfileModule)
-      }
+      },
     ]
   },
   {

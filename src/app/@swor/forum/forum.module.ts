@@ -9,10 +9,12 @@ import { IndexComponent } from './views/index/index.component';
 import { ForumComponent } from './views/forum/forum.component';
 import { TopicComponent } from './views/topic/topic.component';
 import { PostingComponent } from './views/posting/posting.component';
+import { routing } from './forum-routing.module';
 
 @NgModule({
   declarations: [IndexComponent, ForumComponent, TopicComponent, PostingComponent],
   imports: [
+    routing,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
