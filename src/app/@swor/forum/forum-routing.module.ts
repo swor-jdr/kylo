@@ -11,19 +11,19 @@ const routes: Routes = [
         component: IndexComponent
     },
     {
-        path: '/{slug}',
+        path: '/:slug',
         component: ForumComponent
     },
     {
-        path: '/{slug}/creer',
+        path: '/:slug/creer',
         component: PostingComponent
     },
     {
-        path: '/{slug}/{topic}',
+        path: '/:slug/:topic',
         component: TopicComponent
     },
     {
-        path: '/{slug}/{topic}/repondre',
+        path: '/:slug/:topic/repondre',
         component: PostingComponent
     }
 ];

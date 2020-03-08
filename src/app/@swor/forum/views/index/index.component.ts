@@ -29,7 +29,7 @@ export class IndexComponent implements OnInit {
    * Navigate to chosen forum
    */
   goToForum(slug: string) {
-    this.store.dispatch(new Navigate(['forum/'], { slug: slug }))
+    this.store.dispatch(new Navigate(['forum/', slug]))
   }
 
   goToTopic(slug: string, page: number = null) {}
