@@ -1,6 +1,7 @@
 import { Model } from '../../../@core/model';
 import { Topic } from './topic.model';
 import { Post } from './post.model';
+import { Bread } from './bread.model';
 
 export interface Forum extends Model {
     name: string;
@@ -13,4 +14,5 @@ export interface Forum extends Model {
     _rgt?: number;
     topics?: Topic[];
     last_post?: Post;
+    breads?: Bread[];
 }
